@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="css/cartsStyles.css">
+<h3>Carro</h3>
+<div class="cart">
+{{#each products}}
+    <div class="product">
+        <h4>{{this.product.title}}</h4>
+        <img src="{{this.product.thumbnails}}"  alt="foto producto" width="100">
+        <p>{{this.product.description}}</p>
+        <p>Precio: ${{this.product.price}}</p>
+        <p>Cantidad: {{this.quantity}}</p>
+        <p>Código: {{this.product.code}}</p>
+        <a href="../products/{{this.product._id}}" class="verproducto">Ver Producto</a>
+    </div>
+{{/each}}
+</div>

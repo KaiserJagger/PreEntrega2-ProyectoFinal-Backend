@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="css/productsStyles.css">
+<h3>Productos</h3>
+<div class="filters">
+    <div class="category">
+        <a href='products'>Todas las categorías</a><br> 
+        <a href='?query={"category":"SSD"}'>SSD</a> |
+        <a href='?query={"category":"RAM"}'>RAM</a> |
+        <a href='?query={"category":"Motherboard"}'>Motherboard</a> |
+        <a href='?query={"category":"Placa de video"}'>Placa de video</a> |
+        <a href='?query={"category":"PC"}'>PC</a>
+    </div>
+    <div class="stock">
+        <a href='?query={"stock":{"$gt":"0"}}'>Productos con stock</a> |
+        <a href='products'>Todos los productos</a>
+    </div>
+</div>
+<div class="paginado">
+        {{#if hasPrevPage }}
+            <a class="active" href='{{firstLink}}'>Primera</a>
+            <a class="active" href='{{prevLink}}'>Anterior</a>
+        {{else}}
+            <a class="disabled">Primera</a>
+            <a class="disabled">Anterior</a>
+        {{/if}}
+        {{#if hasNextPage }}
+            <a class="active" href='{{nextLink}}'>Siguiente</a>
+            <a class="active"href='{{lastLink}}'>Ultima</a>
+        {{else}}
+            <a class="disabled">Siguiente</a>
+            <a class="disabled">Ultima</a>
+        {{/if}}
+</div>
+<div class="limite">
+    <a href="?limit=5">ver 5</a>
+    <a href="?limit=10">ver 10</a>
+    <a href="?limit=20">ver 20</a>
+    <a href="?limit=50">ver 50</a>
+</div>
+<div class="products">
+{{#each payload}}
+    <div class="product">
+        <h4>{{this.title}}</h4>
+        <img src="{{this.thumbnails}}" alt="foto producto" width="100">
+        <p>{{this.description}}</p>
+        <p>Precio: ${{this.price}}</p>
+        <p>Categoría: {{this.category}}</p>
+        <p>Imagen: {{this.thumbnails}}</p>
+        <p>Status: {{this.status}}</p>
+        <p>Código: {{this.code}}</p>
+        <p>Stock: {{this.stock}}</p>
+        <input class type="button" value="Agregar al carro">
+        <a href="../products/{{this.id}}" class="verproducto">Ver detalles</a>
+    </div>
+{{/each}}
+</div>
+<script src="../scripts/productsScript.js"></script>

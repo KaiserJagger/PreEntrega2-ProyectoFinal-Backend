@@ -1,0 +1,61 @@
+<h3>Productos en tiempo real</h3>
+<h1>Crear producto!</h1>
+
+<form id="addproduct" action="/products" method="post">
+  <label for="title">Título:</label>
+  <input type="text" id="title" name="title" required><br>
+
+  <label for="description">Descripción:</label>
+  <input type="text" id="description" name="description" required><br>
+
+  <label for="price">Precio:</label>
+  <input type="text" id="price" name="price" required><br>
+
+  <label for="status">Estado:</label>
+  <select id="status" name="status" required>
+    <option value="disponible">Disponible</option>
+    <option value="agotado">Agotado</option>
+  </select><br>
+
+  <label for="category">Categoría:</label>
+  <input type="text" id="category" name="category" required><br>
+
+  <label for="thumbnails">Imágenes:</label>
+  <input type="array" id="thumbnails" name="thumbnails" required><br>
+
+  <label for="code">Código:</label>
+  <input type="text" id="code" name="code" required><br>
+
+  <label for="stock">Stock:</label>
+  <input type="text" id="stock" name="stock" required><br>
+
+  <input type="submit" value="Agregar">
+  </form>
+
+<div id="realtimeproducts">
+    {{#each products}}
+        <div id="product{{this.id}}">
+            <h4>{{this.title}}</h4>
+            <img
+                src="https://sinteplastconstruccion.com.ar/assets/img/sinteplastconstruccion.com.ar/photos/w300/{{this.thumbnails}}"
+                alt="foto producto"
+                width="100"
+            />
+            <p>{{this.description}}</p>
+            <p>Precio: ${{this.price}}</p>
+            <p>Categoría: {{this.category}}</p>
+            <p>Imagen: {{this.thumbnails}}</p>
+            <p>Status: {{this.status}}</p>
+            <p>Código: {{this.code}}</p>
+            <p>Stock: {{this.stock}}</p>
+            <input
+                type="button"
+                class="deleteproduct"
+                prodid="{{this.id}}"
+                value="Borrar este producto"
+            />
+        </div>
+    {{/each}}
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../scripts/socketClient.js"></script>

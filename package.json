@@ -1,0 +1,27 @@
+{
+  "name": "segunda.entrega.proyecto.final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  
+  "homepage": "",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "mongoose": "^7.2.0",
+    "mongoose-paginate-v2": "^1.7.1",
+    "socket.io": "^4.6.1"
+  }
+}
